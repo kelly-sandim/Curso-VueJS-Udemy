@@ -1,0 +1,23 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <input type="text" v-on:input="alterarTitulo">
+ <!--{{}} - Padrão double mustard -->
+  <p>{{ titulo }}</p>
+</div>
+
+
+<script>
+     new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS 2!'
+        },
+        methods: {
+        	alterarTitulo(event) {
+          	this.titulo = event.target.value //esse target.value é do próprio JS e.e
+            //target é Uma referência ao objeto que enviou o evento
+          }
+        }
+    })
+</script>
