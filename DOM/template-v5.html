@@ -1,0 +1,29 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p v-once>{{ titulo }}</p>
+    <!-- É assim que vc chama função no double-mustache -->
+    <p>{{ saudacao() }}</p>
+    <!-- Dentro de "" não usa {{}} 
+        Aqui utiliza diretivas
+        v-bind faz a ligação entre o Vue 
+        e o atributo da tag
+        FORMATO: <diretiva>:<atributo>-->
+    <a v-bind:href="link">Google</a>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS!',
+            link: 'https://www.google.com/'
+        },
+        methods: {
+            saudacao: function() {
+                this.titulo = "Bom dia!!!"
+                return this.titulo
+            }
+        }
+    })
+</script>
