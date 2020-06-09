@@ -11,6 +11,11 @@
         e o atributo da tag
         FORMATO: <diretiva>:<atributo>-->
     <a v-bind:href="link">Google</a>
+    <hr>
+    <!-- <p>{{ linkHtml }}</p> Imprime a tag html em formato de string -->
+
+    <!-- converte a string de tag html em html de verdade mesmo usando esse v-html -->
+    <p v-html="linkHtml"></p> 
 </div>
 
 <script>
@@ -18,7 +23,8 @@
         el: '#app',
         data: {
             titulo: 'Usando VueJS!',
-            link: 'https://www.google.com/'
+            link: 'https://www.google.com/',
+            linkHtml: '<a href="https://www.google.com/">Google</a>'
         },
         methods: {
             saudacao: function() {
