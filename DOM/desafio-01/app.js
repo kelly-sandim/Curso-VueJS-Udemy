@@ -5,9 +5,8 @@ new Vue({
         idade: 25        
     },
     methods: {
-        saudacao: function() {
-            this.titulo = "Bom dia!!!"
-            return this.titulo
+        randomNumber: function() {            
+            return Math.random()
         }
     }
 })
