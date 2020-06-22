@@ -2,5 +2,10 @@ new Vue({
     el: '#desafio',
     data: {
         valor: ''
+    },
+    methods: {
+        showAlert() {
+            alert("Você clicou no botão, por isso apareci!");
+        }
     }
 })
