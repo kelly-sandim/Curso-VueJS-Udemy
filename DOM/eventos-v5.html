@@ -1,0 +1,50 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ contador }}</p>
+    <button v-on:click="somar(5, $event)">Somar 1</button>
+    <p v-on:mousemove="atualizarXY">
+        Mouse: {{ x }} e {{ y }}
+        <!-- <span v-on:mousemove="parar">PARAR AQUI!!!!!!!</span> -->
+        <span v-on:mousemove.stop="">PARAR AQUI!!!!!!!</span>
+    </p>
+    <!-- <a v-on:click.prevent="" href="https://www.google.com.br">Google</a> -->
+    <!-- <a v-on:click="naoNavegar" href="https://www.google.com.br">Google</a> -->
+    <a v-on:click.prevent="naoNavegar" href="https://www.google.com.br">Google</a>
+    <hr>
+    <!-- Quando o usuário apertar Enter que vai mostrar o alerta -->
+    <!-- <input type="text"v-on:keyup.enter="exibirAlerta"> -->
+    <!-- Aqui quando o usuário apertar Enter E Alt juntos que vai mostrar o alerta -->
+    <input type="text"v-on:keyup.enter.alt="exibirAlerta">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0,
+        },
+        methods: {
+            somar(passo, e) {
+                console.log(passo, e);
+                this.contador += passo;
+            },
+            atualizarXY(e) {
+                this.x = e.clientX;
+                this.y = e.clientY;
+            },
+            naoNavegar(e) {
+                console.log("não navegar");
+                // e.preventDefault();
+            },
+            exibirAlerta() {
+                alert("Estou te alertando!");
+            }
+            // parar(e) {
+            //     e.stopPropagation();
+            // }
+        }
+    })
+</script>
