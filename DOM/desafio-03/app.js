@@ -9,7 +9,7 @@ new Vue({
         }
     },
     watch: {
-        valor() {
+        resultado() {//era pra por resultado mesmo e só dá "gatilho" quando resultado muda de valor
             setTimeout(() => {
                 this.valor = 0;
             }, 5000)
