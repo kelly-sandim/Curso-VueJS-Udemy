@@ -3,7 +3,8 @@ new Vue({
 	data: {
 		alternarClasse: false,
 		classeCSS: 'valor',
-		outraClasseCSS: false
+		outraClasseCSS: false,
+		cor: 'red'
 	},
 	methods: {
 		iniciarEfeito() {	
@@ -26,6 +27,13 @@ new Vue({
 			return {
 				mystic: this.outraClasseCSS,
 				instinct: !this.outraClasseCSS
+			}
+		},
+		estiloVue3() {
+			return {
+				backgroundColor: this.cor,
+				width: '100px',
+				height: '100px'
 			}
 		}
 	}
