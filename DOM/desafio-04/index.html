@@ -5,11 +5,11 @@
 	<!-- 1) Iniciar a execução do efeito usando botão. 
     O efeito deve alternadamente trocar as classes "destaque" e
     "encolher" para cada chamada de setInteval. Use a div abaixo
-	com id "efeito" para associar as classes CSS. -->
+	com id "efeito" para associar as classes CSS. (DONE..?) -->
 	<h2>#01</h2>
 	<div>
 		<button @click="iniciarEfeito">Iniciar Efeito</button>
-		<div id="efeito"></div>
+		<div id="efeito" :class="estiloVue1"></div>
 	</div>
 	
 	<!-- 2) Crie duas classes CSS e associe a div usando a
