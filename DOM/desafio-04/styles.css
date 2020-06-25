@@ -13,3 +13,18 @@
 	background-color: gray;
 	width: 50px !important;
 }
+
+.box-size {
+	width: 100px;
+	height: 100px;
+}
+
+.mystic {	
+	background-image: url('https://vignette.wikia.nocookie.net/pokemongo/images/f/f4/Team_Mystic.png/revision/latest?cb=20160717150716');
+	background-size: cover;
+}
+
+.valor {	
+	background-image: url('https://vignette.wikia.nocookie.net/pokemongo/images/2/22/Team_Valor.png/revision/latest?cb=20160717150715');
+	background-size: cover;
+}
