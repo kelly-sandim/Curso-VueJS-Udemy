@@ -14,17 +14,28 @@
 	width: 50px !important;
 }
 
-.box-size {
+.valor {	
 	width: 100px;
 	height: 100px;
+	background-image: url('https://vignette.wikia.nocookie.net/pokemongo/images/2/22/Team_Valor.png/revision/latest?cb=20160717150715');
+	background-size: cover;
 }
 
 .mystic {	
+	width: 100px;
+	height: 100px;
 	background-image: url('https://vignette.wikia.nocookie.net/pokemongo/images/f/f4/Team_Mystic.png/revision/latest?cb=20160717150716');
 	background-size: cover;
 }
 
-.valor {	
-	background-image: url('https://vignette.wikia.nocookie.net/pokemongo/images/2/22/Team_Valor.png/revision/latest?cb=20160717150715');
+.instinct {	
+	width: 100px;
+	height: 100px;
+	background-image: url('https://vignette.wikia.nocookie.net/pokemongo/images/d/d4/Team_Instinct.png/revision/latest?cb=20160717150717');
 	background-size: cover;
+}
+
+.box-size {
+	width: 200px;
+	height: 200px;
 }

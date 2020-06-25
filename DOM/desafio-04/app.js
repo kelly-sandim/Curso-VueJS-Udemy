@@ -1,7 +1,8 @@
 new Vue({
 	el: '#desafio',
 	data: {
-		alternarClasse: false
+		alternarClasse: false,
+		classeCSS: 'valor'
 	},
 	methods: {
 		iniciarEfeito() {	
