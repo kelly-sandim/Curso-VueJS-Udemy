@@ -2,7 +2,8 @@ new Vue({
 	el: '#desafio',
 	data: {
 		alternarClasse: false,
-		classeCSS: 'valor'
+		classeCSS: 'valor',
+		outraClasseCSS: false
 	},
 	methods: {
 		iniciarEfeito() {	
@@ -19,6 +20,12 @@ new Vue({
 			return {
 				destaque: this.alternarClasse,
 				encolher: !this.alternarClasse			
+			}
+		},
+		estiloVue2(){
+			return {
+				mystic: this.outraClasseCSS,
+				instinct: !this.outraClasseCSS
 			}
 		}
 	}

@@ -26,12 +26,12 @@
 	</div>
 
 	<!-- 4) Aplique na div abaixo a classe informada pelo usuário e
-    outra classe usando o valor true/false (crie classes CSS de exemplo). -->
+	outra classe usando o valor true/false (crie classes CSS de exemplo). (NOT DONE TOTALLY) -->
 	<h2>#04</h2>
 	<div>
-		<input type="text" >
-		<input type="text">
-		<div></div>
+		<input type="text" v-model="classeCSS">
+		<input type="text" v-model="outraClasseCSS">
+		<div :class="[classeCSS, estiloVue2]"></div>
 	</div>
 
 	<!-- 5) Repita 3) mas utilizando estilos ao invés de classes CSS.
