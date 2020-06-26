@@ -3,26 +3,34 @@ new Vue({
 	data: {
 		alternarClasse: false,
 		classeCSS: 'valor',
-		outraClasseCSS: false,
+		outraClasseCSS: '',
+		instinct: true,
 		cor: 'red',
-		barra: 1
+		barra: 0
 	},
 	methods: {
 		iniciarEfeito() {	
-			setTimeout(() => {
+			setInterval(() => {
                 this.alternarClasse = !this.alternarClasse;
-			}, 2000);			
+			}, 1000);			
 		},
 		iniciarProgresso() {
-			if (this.barra >= 100) {
-				this.barra = 0;
-			} 
-			while(this.barra <= 100){
-				setTimeout(() => {
-					this.barra++;
-				}, 1000);
-			}	
-		}
+			const temporizador = setInterval(() => {
+				this.barra += 5				
+				if(this.barra == 100) {
+					this.barra = 0,
+					clearInterval(temporizador)
+				}
+			}, 500)			
+		},
+		estiloVue2(event){
+			if(event.target.value == 'true') {
+				this.instinct  = true;
+			}
+			else if(event.target.value == 'false') {
+				this.instinct = false;
+			}
+		},
 	},
 	computed: {
 		estiloVue1() {
@@ -31,12 +39,7 @@ new Vue({
 				encolher: !this.alternarClasse			
 			}
 		},
-		estiloVue2(){
-			return {
-				mystic: this.outraClasseCSS,
-				instinct: !this.outraClasseCSS
-			}
-		},
+		
 		estiloVue3() {
 			return {
 				backgroundColor: this.cor,
@@ -47,7 +50,8 @@ new Vue({
 		estiloVue4() {
 			return {
 				width: '100%',
-				backgroundColor: 'grey',
+				height: '30px',
+				border: '1px solid #000'				
 			}
 		},
 		estiloVue5() {
