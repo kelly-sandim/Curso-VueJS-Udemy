@@ -4,7 +4,8 @@ new Vue({
 		alternarClasse: false,
 		classeCSS: 'valor',
 		outraClasseCSS: false,
-		cor: 'red'
+		cor: 'red',
+		barra: 1
 	},
 	methods: {
 		iniciarEfeito() {	
@@ -13,7 +14,14 @@ new Vue({
 			}, 2000);			
 		},
 		iniciarProgresso() {
-
+			if (this.barra >= 100) {
+				this.barra = 0;
+			} 
+			while(this.barra <= 100){
+				setTimeout(() => {
+					this.barra++;
+				}, 1000);
+			}	
 		}
 	},
 	computed: {
@@ -34,6 +42,19 @@ new Vue({
 				backgroundColor: this.cor,
 				width: '100px',
 				height: '100px'
+			}
+		},
+		estiloVue4() {
+			return {
+				width: '100%',
+				backgroundColor: 'grey',
+			}
+		},
+		estiloVue5() {
+			return {
+				width: `${this.barra}%`,
+  				height: '30px',
+  				backgroundColor: 'green'
 			}
 		}
 	}
