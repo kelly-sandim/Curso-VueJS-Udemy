@@ -41,11 +41,16 @@
         nome: 'Maria',
         notas: [7.67, 8.33, 6.98, 9.21]
       }
-      (dica: use v-for e v-if na resolução) -->
+      (dica: use v-for e v-if na resolução) (DONE..?) -->
       <h2>#04</h2>
       <ul>
-        <li>
-          
+        <li v-for="(valor, chave) in aluno">        
+          <ul v-if="chave === 'notas'">
+            <li v-for="nota in valor">{{ nota }}</li>
+          </ul>
+          <template v-else>
+            {{ valor }} 
+          </template>
         </li>
       </ul>
 </div>
