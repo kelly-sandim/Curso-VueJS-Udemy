@@ -26,10 +26,12 @@
       autor: 'J.R.R. Tolkiens',
       volume: '3'
     }
-    Imprima também o índice de cada item. -->
+    Imprima também o índice de cada item. (DONE) -->
     <h2>#03</h2>
     <ul>
-      <li></li>
+      <li v-for="(valor, chave, index) in livro">        
+          ({{ index + 1 }}) - {{ chave }} = {{ valor }}           
+      </li>
     </ul>
     
     <!-- 4) Imprima o seguinte objeto (somente os valores) e
