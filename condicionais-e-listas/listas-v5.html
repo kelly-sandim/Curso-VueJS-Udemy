@@ -5,6 +5,7 @@
     <ul>
         <li v-for="(cor, i) in cores">{{ i+1 }}) {{ cor }}</li>
     </ul>    
+    <button @click="cores.push('branca')">Adicionar</button>
     <hr>
     <template v-for="(cor, i) in cores">
         <h1>{{ cor }}</h1>
