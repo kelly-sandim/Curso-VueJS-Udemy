@@ -3,18 +3,18 @@
 <div id="desafio">
   <!-- 1) Ligue o botão para alternar a exibição dos dois
     parágrafos. Use ambos v-if e v-show e inspecione os elementos
-    para ver a diferença (DONE) -->
+    para ver a diferença (DONE) (CORRECT) -->
     <h2>#01</h2>
     <div>
-    <button @click="exibirPrimeiro = !exibirPrimeiro">Alternar</button>
-    <p v-if="exibirPrimeiro">Você quer me ver ...</p>
-    <p v-else>...ou eu</p>
-    <p v-show="exibirPrimeiro">Você quer me ver ...</p>
-    <p v-show="!exibirPrimeiro">...ou eu</p>
-  </div>
+      <button @click="exibirPrimeiro = !exibirPrimeiro">Alternar</button>
+      <p v-if="exibirPrimeiro">Você quer me ver ...</p>
+      <p v-else>...ou eu</p>
+      <p v-show="exibirPrimeiro">Você quer me ver ...</p>
+      <p v-show="!exibirPrimeiro">...ou eu</p>
+    </div>
   
   <!-- 2) Exiba em uma <ul> um array de elementos da sua escolha.
-    Imprima também o índice de cada elemento. (DONE) -->
+    Imprima também o índice de cada elemento. (DONE) (CORRECT) -->
     <h2>#02</h2>
     <ul>
       <li v-for="(pessoa, i) in array">{{ i+1 }}) {{ pessoa }}</li>
@@ -26,7 +26,7 @@
       autor: 'J.R.R. Tolkiens',
       volume: '3'
     }
-    Imprima também o índice de cada item. (DONE) -->
+    Imprima também o índice de cada item. (DONE) (CORRECT) -->
     <h2>#03</h2>
     <ul>
       <li v-for="(valor, chave, index) in livro">        
@@ -41,18 +41,37 @@
         nome: 'Maria',
         notas: [7.67, 8.33, 6.98, 9.21]
       }
-      (dica: use v-for e v-if na resolução) (DONE..?) -->
+      (dica: use v-for e v-if na resolução) (DONE..?) (CORRECT I GUESS) -->
       <h2>#04</h2>
       <ul>
-        <li v-for="(valor, chave) in aluno">        
-          <ul v-if="chave === 'notas'">
-            <li v-for="nota in valor">{{ nota }}</li>
-          </ul>
+        <li v-for="(valor, chave) in aluno"> 
+          <template v-if="chave === 'notas'">Notas:
+            <ul>
+              <li v-for="nota in valor">{{ nota }}</li>
+            </ul>
+          </template>
           <template v-else>
             {{ valor }} 
           </template>
         </li>
       </ul>
+
+      <!-- OUTRA FORMA: 
+      <ul>
+        <li v-for="valor in aluno"> 
+          <template v-if="!Array.isArray(valor)">
+            {{ valor }} 
+          </template>
+          <template v-else>
+            Notas:
+            <ul>
+              <li v-for="nota in valor">{{ nota }}</li>
+            </ul>
+          </template>            
+        </li>
+      </ul>
+      
+      -->
 </div>
 <script src="app.js"></script>
       
