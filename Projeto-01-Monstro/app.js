@@ -3,7 +3,8 @@ new Vue({
     data: {
         running: false,
         playerLife: 100,
-        monsterLife: 100
+        monsterLife: 100,
+        logs: []
     },
     computed: {
         hasResult() {
@@ -17,14 +18,16 @@ new Vue({
             this.monsterLife = 100;
         },
         attack(special) {
-            this.hurt('monsterLife', 5, 10, special);
-            this.hurt('playerLife', 7, 12, false); //player não pode ser ferido com golpe especial
+            this.hurt('monsterLife', 5, 10, special, 'Jogador', 'Monstro', 'player');
+            if(this.monsterLife > 0) {
+                this.hurt('playerLife', 7, 12, false, 'Monstro', 'Jogador', 'monster'); //player não pode ser ferido com golpe especial
+            }
         },
-        hurt(prop, min, max, special) {
+        hurt(prop, min, max, special, source, target, cls) {
             const plus = special ? 5 : 0;
             const hurt = this.getRandom(min + plus, max + plus);
             this[prop] = Math.max(this[prop] - hurt, 0); //o 0 evita que o PlayerLife seja negativo
-
+            this.registerLog(`${source} atingiu ${target} com ${hurt}.`, cls);
         },
         healAndHurt() {
             this.heal(10, 15);
@@ -37,6 +40,9 @@ new Vue({
         getRandom(min, max) {
             const value = Math.random() * (max - min) + min;
             return Math.round(value);
+        },
+        registerLog(text, cls) {
+            this.logs.unshift({ text, cls }); //vai por na primeira posição do array sempre            
         }
     },
     watch: {
