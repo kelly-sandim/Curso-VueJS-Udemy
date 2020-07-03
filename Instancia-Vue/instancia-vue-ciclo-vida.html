@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <h1>{{ titulo }}</h1>
+    <button @click="titulo += '#'">Alterar Título</button>
+    <button @click="$destroy()">Destruir</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Ciclo de Vida',
+        },
+        //Daqui até a beforeUpdate, são funções que só são chamadas uma única vez
+        beforeCreate() {
+            console.log('Antes de Criar')
+        },
+        created() {
+            console.log('Criado')
+        },
+        beforeMount() {
+            console.log('Antes de Montar (DOM)')
+        },
+        mounted() {
+            console.log('DOM Montada')
+        },
+        beforeUpdate() {
+            console.log('Antes de Atualizar')
+        },
+        updated() {
+            console.log('Atualizado')
+        },
+        //beforeDestroy e destroyed também só são chamados uma vez
+        beforeDestroy(){
+            console.log('Antes de destruir')
+        },
+        destroyed() {
+            console.log('Destruído')
+        }
+    })
+</script>
