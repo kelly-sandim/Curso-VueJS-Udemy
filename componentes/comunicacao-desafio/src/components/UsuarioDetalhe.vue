@@ -10,12 +10,8 @@
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            usuario: null
-        }
-    }
+export default {    
+    props: { usuario: Object }
 }
 </script>
 
