@@ -10,8 +10,15 @@
 </template>
 
 <script>
+import barramento from '@/barramento'
+
 export default {    
-    props: { usuario: Object }
+    props: { usuario: Object },
+    created() {
+        barramento.quandoUsuarioForEscolhido(usuario => {
+            this.usuario = usuario
+        })
+    }
 }
 </script>
 

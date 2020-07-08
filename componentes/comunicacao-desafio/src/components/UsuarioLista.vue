@@ -18,11 +18,13 @@
 </template>
 
 <script>
+import barramento from '@/barramento'
+
 export default {
     props: { usuarios: Array },
     methods: {
         mostrarDetalhes(usuario) {            
-            this.$emit('usuarioSelecionado', usuario)
+            barramento.mostrarDetalhes(usuario)
         }
     }
 }
