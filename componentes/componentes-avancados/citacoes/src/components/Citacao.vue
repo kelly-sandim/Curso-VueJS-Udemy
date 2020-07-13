@@ -1,6 +1,6 @@
 <template>
     <div class="citacao">
-        {{ texto }}
+        <slot></slot>
     </div>
 </template>
 
@@ -16,5 +16,9 @@ export default {
         background-color: rgba(0, 0, 0, .1);
         padding: 25px;
         max-width: 450px;
+    }
+
+    h1 {
+        color: red!important;
     }
 </style>
