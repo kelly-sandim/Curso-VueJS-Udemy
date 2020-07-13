@@ -39,7 +39,7 @@ export default {
         indice() {
             return Math.abs(this.numero % 3)
         }
-    }
+    }    
 }
 </script>
 
