@@ -2,7 +2,8 @@
 	<div id="app">
 		<h1>Tarefas</h1>
 		<NewTask @taskAdded="addTask" />
-		<TaskGrid :tasks="tasks" />
+		<TaskGrid @taskDeleted="deleteTask"
+				:tasks="tasks" />
 	</div>
 </template>
 
@@ -32,6 +33,11 @@ export default {
 				name: task.name,
 				pending: task.pending || true
 			})			
+		},
+		deleteTask(indice) {
+			//splice: o primeiro parâmetro é a partir de que índice quer remover
+			//o segundo parâmetro é quantos elementos, a partir desse índice, quer remover
+			this.tasks.splice(indice, 1)
 		}
 	}
 }
