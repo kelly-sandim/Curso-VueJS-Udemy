@@ -4,6 +4,7 @@
             <Task v-for="(task, i) in tasks" 
                     :key="task.name"
                     @taskDeleted="$emit('taskDeleted', i)"
+                    @taskStateChanged="$emit('taskStateChanged', i)"
                     :task="task">
             </Task>
         </template>

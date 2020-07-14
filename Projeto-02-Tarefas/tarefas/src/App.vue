@@ -2,8 +2,10 @@
 	<div id="app">
 		<h1>Tarefas</h1>
 		<NewTask @taskAdded="addTask" />
-		<TaskGrid @taskDeleted="deleteTask"
-				:tasks="tasks" />
+		<TaskGrid
+				:tasks="tasks" 
+				@taskDeleted="deleteTask"
+				@taskStateChanged="toggleTaskState" />
 	</div>
 </template>
 
@@ -15,10 +17,7 @@ export default {
 	components: { NewTask, TaskGrid },
 	data() {
 		return {
-			tasks: [
-				{ name: 'Lavar a louça', pending: false },
-				{ name: 'Comprar blusa', pending: true },
-			]
+			tasks: []
 		}
 	},
 	methods: {
@@ -38,6 +37,9 @@ export default {
 			//splice: o primeiro parâmetro é a partir de que índice quer remover
 			//o segundo parâmetro é quantos elementos, a partir desse índice, quer remover
 			this.tasks.splice(indice, 1)
+		},
+		toggleTaskState(indice) {
+			this.tasks[indice].pending = !this.tasks[indice].pending
 		}
 	}
 }
